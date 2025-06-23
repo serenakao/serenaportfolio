@@ -15,6 +15,7 @@
         src: url('./fonts/TraulhaTEST-Regulara.otf') format('opentype');
         font-weight: normal;
         font-style: normal;
+        font-display: swap;
         }
 
     @font-face {
@@ -22,6 +23,7 @@
         src: url('./fonts/TraulhaTEST-Jornau.otf') format('opentype');
         font-weight: normal;
         font-style: normal;
+        font-display: swap;
         }
 
     @font-face {
@@ -29,6 +31,7 @@
         src: url('./fonts/TraulhaTEST-Lineara.otf') format('opentype');
         font-weight: normal;
         font-style: normal;
+        font-display: swap;
         }
 
     @font-face {
@@ -36,6 +39,7 @@
         src: url('./fonts/TraulhaTEST-Italica.otf') format('opentype');
         font-weight: normal;
         font-style: italic;
+        font-display: swap;
         }
 
     @font-face {
@@ -43,12 +47,14 @@
         src: url('./fonts/TraulhaTEST-Clinat') format('opentype');
         font-weight: normal;
         font-style: italic;
+        font-display: swap;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            max-width: 100%;
         }
 
         body {
@@ -170,11 +176,14 @@
             padding-left: 40px;
             padding-right: 40px;
             padding-bottom: 8px;
+            padding-top: 8px;
+            gap: 12px;
             left: 2vw;
             bottom: -3vh;
-            height: 80px;
+            min-height: 80px;
             width: 50vw;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             background: #fffcfa;
             border-top: rgb(255, 109, 81, 0.2) 1px solid;
@@ -188,10 +197,18 @@
             font-size: 0.7em;
         }
 
+        .detail-panel-text{
+            flex: 1 1 156px;
+            text-align: left;
+        }
+
         .btn-group {
             padding-left: 4px;
             display: flex;
+            flex-wrap: nowrap;
+            flex: 0 0 auto;
             gap: 2px;
+            min-width: 212px;
         }
 
         .details-list {
@@ -301,6 +318,10 @@
             font-family: 'traulha Regular', sans-serif;
             font-size: 2em;
             text-transform: uppercase;
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            line-height: 1.3em;
         }
 
         h3 {
@@ -308,6 +329,9 @@
             font-family: 'traulha Regular', sans-serif;
             font-size: 0.8em;
             text-transform: uppercase;
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
 
         p1 {
@@ -325,9 +349,11 @@
         .project-paragraph a {
             color: #FF6D51;
             text-decoration: none;
-            font-weight: bold;
             font-family: 'traulha Italic', sans-serif;
             font-size: 0.9em;
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
         }
 
         .project-paragraph a:hover {
@@ -371,23 +397,23 @@
             margin-bottom: 36px;
         }
 
+        .project-video video {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        display: block;
+        object-fit: cover;
+        }
+
         .project-video.vertical video {
             aspect-ratio: 9/16;
             max-height: 400px;
             max-width: 100%;
             width: auto;
-            /* margin: 0 auto 8px; */
             object-fit: cover;
             display: block;
+            margin: 0 auto;
             }
-
-        .project-video.vertical video {
-            aspect-ratio: 9/16;
-            max-height: 600px;
-            object-fit: cover;
-            display: block;
-        }
-
 
         .project-image {
             width: 100%;
@@ -452,7 +478,7 @@
         border: #FF6D51 1px solid;
         background-color: #fffcfa;
         padding: 12px 20px;
-        padding-bottom: 16px;
+        padding-bottom: 12px;
         border-radius: 30px;
         margin-right: 10px;
         cursor: pointer;
@@ -478,13 +504,6 @@
             line-height: 1.6;
             margin-bottom: 20px;
         }
-
-        /* .project-details {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        } */
 
         .project-details h4 {
             color: #2d1b69;
@@ -557,6 +576,7 @@
             margin-right: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
+            background-color: #f4f1ef;
         }
 
         .nav-btn:hover {
@@ -574,9 +594,11 @@
         .experience-highlight a {
             color: #FF6D51;
             text-decoration: none;
-            font-weight: bold;
             font-family: 'traulha Italic', sans-serif;
             font-size: 1.1em;
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
         }
 
         .experience-highlight a:hover {
@@ -614,7 +636,9 @@
                 <div id="detailContent"></div>
             </div>
             <div class="detail-panel-nav">
+            <div class="detail-panel-text">
                 Use esc to close and arrows to navigate through projects
+            </div>
             <div class="btn-group">
                 <div class="close-btn" onclick="closeDetail()">
                 <img src="./icons/xmark-large.svg" alt="exit" class="icon">
@@ -693,6 +717,8 @@
       {
         type: "video",
         src: "./projects/spheres/2025-01-13_Spheres_announcement_teaser_16x9.mp4",
+        poster: "./projects/spheres/spheres_videoposter.webp",
+        preload: "metadata",
         caption: "Announcement teaser. Motion design by Ben Nelson. Music by Sean Klassen."
       },
       {
@@ -883,17 +909,16 @@
                             },
                             {
                                 type: "video",
-                                src: "./projects/thought/cutting.mp4",
-                                orientation: "vertical"
-                            },
-                            {
-                                type: "video",
                                 src: "./projects/thought/inthediningroom.mp4",
+                                poster: "./projects/thought/inthediningroom_videoposter.webp",
+                                preload: "metadata",
                                 orientation: "vertical"
                             },
                             {
                                 type: "video",
                                 src: "./projects/thought/allartifacts.mp4",
+                                poster: "./projects/thought/allartifacts_videoposter.webp",
+                                preload: "metadata",
                                 orientation: "vertical"
                             },
                         ]
@@ -1218,10 +1243,13 @@ function showProjectDetail(details) {
       }
 
 if (block.type === 'video') {
-  const isVertical = block.orientation === 'vertical'; // optional field in your block data
+  const isVertical = block.orientation === 'vertical';
+  const posterAttr = block.poster ? `poster="${block.poster}"` : '';
+  const preloadAttr = block.preload ? `preload="${block.preload}"` : 'preload="metadata"';
+
   return `
     <div class="project-video${isVertical ? ' vertical' : ''}">
-      <video controls playsinline muted preload="metadata">
+      <video controls playsinline muted ${preloadAttr} ${posterAttr}>
         <source src="${block.src}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -1229,6 +1257,8 @@ if (block.type === 'video') {
     </div>
   `;
 }
+
+
 
       if (block.type === 'image' && !block.hidden) {
         return `
@@ -1333,19 +1363,20 @@ requestAnimationFrame(() => {
 }
 
     //Scroll hint
-    function checkScrollHintVisibility() {
+function checkScrollHintVisibility() {
   const contentContainer = document.querySelector('.detail-content-container');
   const scrollHint = document.getElementById('scrollHint');
 
-  if (contentContainer.scrollHeight > contentContainer.clientHeight) {
-    scrollHint.style.display = 'block';
-  } else {
-    scrollHint.style.display = 'none';
-  }
+  if (!contentContainer || !scrollHint) return;
+
+  const hasOverflow = contentContainer.scrollHeight > contentContainer.clientHeight;
+
+  scrollHint.style.display = hasOverflow ? 'block' : 'none';
 }
 
-
         function showContactDetail() {
+        const scrollHint = document.getElementById('scrollHint');
+            if (scrollHint) scrollHint.style.display = 'none';
             const content = `
                 <h2>Let's Connect</h2>
                 <p style="margin-bottom: 25px; color: #666; line-height: 1.6;">
@@ -1393,6 +1424,8 @@ requestAnimationFrame(() => {
         }
 
         function showAboutDetail() {
+        const scrollHint = document.getElementById('scrollHint');
+  if (scrollHint) scrollHint.style.display = 'none';
             const content = `
                 <h2>About</h2>
                 
