@@ -148,6 +148,7 @@
             display: none;
             z-index: 3;
             font-family: 'baskerville', serif;
+            line-height: 1.3em;
         }
 
         .scroll-hint {
@@ -299,6 +300,13 @@
             margin-bottom: 6px;
             font-family: 'traulha Regular', sans-serif;
             font-size: 2em;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            margin-bottom: 6px;
+            font-family: 'traulha Regular', sans-serif;
+            font-size: 0.8em;
             text-transform: uppercase;
         }
 
@@ -917,6 +925,15 @@
                                 type: "paragraph",
                                 text: "I enjoy exploring different notions, ideas and seeing where my rabbit hole takes me. I wanted to express that through this website and give viewers and edited version of what goes on in my mind.",
                             },
+                            {
+                                type: "list",
+                                label:"Laundry list",
+                                items: [
+                                "Add loading animation",
+                                "Add Chinese language support",
+                                "Clean up code",
+                                ]
+                            },
                         ]
                     }
                 },
@@ -1213,7 +1230,6 @@ if (block.type === 'video') {
   `;
 }
 
-
       if (block.type === 'image' && !block.hidden) {
         return `
             <div class="project-image">
@@ -1222,7 +1238,6 @@ if (block.type === 'video') {
             </div>
         `;
 }
-
 
       if (block.type === 'carousel') {
         return `
@@ -1248,6 +1263,15 @@ if (block.type === 'video') {
           </div>
         `;
       }
+
+    if (block.type === 'list') {
+    return `
+        ${block.label ? `<h3 class="list-label">${block.label}</h3>` : ''}
+        <ul class="project-list">
+        ${block.items.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    }
 
       return ''; // fallback for unknown block types
     }).join('');
