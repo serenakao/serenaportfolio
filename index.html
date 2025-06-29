@@ -865,7 +865,7 @@
     blocks: [
         {
             type: "paragraph",
-            text: "Inconsistencies pop up as a system of the rapid growth of the Mercury product. One of the primary inconsistenies was the use of color between brand and product. It become a significant issue, compromising the integrity of our brand and hampering our ability to fully realize the potential of our brand archetype. This lead to confusion among potential and existing customers, affecting their decision-making process and interactions with Mercury."
+            text: "Inconsistencies pop up as a symptom of the rapid growth of the Mercury product. One of the primary inconsistencies was the use of color between brand and product. It become a significant issue, compromising the integrity of our brand and hampering our ability to fully realize the potential of our brand archetype. This lead to confusion among potential and existing customers, affecting their decision-making process and interactions with Mercury."
         },
         {
             type: "paragraph",
@@ -904,23 +904,78 @@
                                 text: "A collection of thoughts and memories that sit in the back of our minds. Buried in an attempt to be forgotten but never dead. These thoughts and memories have shaped or influenced us in some way, whether positive or negative it simply exists.",
                             },
                             {
+                                type: "paragraph",
+                                text: "<i>In the Dining Room of a Seaside Inn</i> by Jason Zhang, is a quiet reflection on love in two stages: the seasoned stillness of an older couple and the newly kindled warmth of a younger one. In designing this book, I sought to mirror that emotional architecture through the layout and rhythm of the reader’s experience. Each stanza occupies its own page, creating a contemplative pause between thoughts—an intentional breathing space that mimics the poem’s sparseness and invites reflection.",
+                            },
+                            {
+                                type: "paragraph",
+                                text: "Materially, the book was inspired by objects that hold memory—specifically, vintage motel key holders, often kept as keepsakes from places that meant something to someone. This form echoes the poem’s exploration of nostalgia and impermanence, embodying that sense of personal, private sentiment that lingers after a moment passes. The design invites the reader to feel like an observer seated “two tables over,” held in quiet intimacy with the text, its lovers, and its watchful cranes.",
+                            },
+                            {
+                                type: "paragraph",
+                                text: "This project became not just a container for poetry, but a way of staging proximity and distance—between people, between verses, between the seen and the remembered.",
+                            },
+                            {
                                 type: "image",
-                                src: "./projects/thought/coin_dig_site_light.webp",
-                                hidden:true
+                                src: "./projects/thought/in-the-dining-room_outside.webp",
+                            },
+                            {
+                                type: "image",
+                                src: "./projects/thought/in-the-dining-room_inside.webp",
+                            },
+                            {
+                                type: "paragraph",
+                                text: "<i>The Farmer and The Fish</i> by Sungeun Eom, is a contemporary folk tale about the quiet tragedy that occurs when wonder meets a world governed solely by utility. The story contrasts a hard-edged rice farmer, who has lived his life by principles of duty and survival, with a newly conscious fish—a creature who, having tasted curiosity and beauty for the first time, seeks connection and meaning. Their encounter is tender, haunting, and ultimately heartbreaking.",
+                            },
+                            {
+                                type: "paragraph",
+                                text: "As a reflection of the story and the author’s cultural background, I leaned into the visual of scholarly East Asian bookmaking traditions. Utilizing rice paper, stab binding, and cloth cover, to ground the piece in the visual language of ancestral knowledge and inherited worldview. I wanted to bring the reader into the mindset that the story was of something that has existed through time. The tactile materials and minimal aesthetic evoke a kind of reverence, suggesting the book as an artifact: a vessel for reflection, not decoration.",
+                            },
+                            {
+                                type: "paragraph",
+                                text: "I wanted the book to feel like something quietly passed down. An artifact that might live on a dusty shelf in a family library, holding within it lessons one may experience.",
+                            },
+                            {
+                                type: "image",
+                                src: "./projects/thought/fishing_outside.webp",
+                            },
+                            {
+                                type: "image",
+                                src: "./projects/thought/fishing_inside.webp",
+                            },
+                        ]
+                    }
+                },
+                {
+                    id: "memories",
+                    name: "Memories",
+                    type: "project",
+                    parent: "experiments",
+                    x: 300,
+                    y: 0,
+                    details: {
+                        title: "Memories",
+                        role: "Creator, designer, producer",
+                        type: "Book design, print design, production design",
+                        blocks: [
+                            {
+                                type: "paragraph",
+                                text: "<i>Memories</i> by Juliana Vislova, is a short comic that traces the moment of quiet transformation in a child. The story unfolds through a conversation how everything we see in the night sky is a glimpse into the past.",
+                            },
+                            {
+                                type: "paragraph",
+                                text: "I chose to present this comic in a waterfall card structure, where each panel reveals itself one by one in a cascading, interactive sequence. It slows the reader’s engagement and creates an almost cinematic pacing that echoes the story’s central theme: how vast experiences are often made up of small, intimate moments. As the child’s understanding expands, so does the reader’s field of view.",
+                            },
+                            {
+                                type: "paragraph",
+                                text: "This project captures how memory and perspective are built panel by panel, just like stars across time.",
                             },
                             {
                                 type: "video",
-                                src: "./projects/thought/inthediningroom.mp4",
-                                poster: "./projects/thought/inthediningroom_videoposter.webp",
+                                src: "./projects/thought/memory.mp4",
+                                poster: "./projects/thought/memories_videoposter.webp",
                                 preload: "metadata",
-                                orientation: "vertical"
-                            },
-                            {
-                                type: "video",
-                                src: "./projects/thought/allartifacts.mp4",
-                                poster: "./projects/thought/allartifacts_videoposter.webp",
-                                preload: "metadata",
-                                orientation: "vertical"
+                                orientation: "horizontal"
                             },
                         ]
                     }
@@ -931,7 +986,7 @@
                     type: "project",
                     parent: "experiments",
                     x: 500,
-                    y: 20,
+                    y: 150,
                     details: {
                         title: "Portfolio site",
                         role: "Designer, coder, AI wrangler",
@@ -1022,6 +1077,7 @@
                 { source: "projects", target: "city" },
                 { source: "projects", target: "aura" },
                 { source: "experiments", target: "thought" },
+                { source: "experiments", target: "memories" },
                 { source: "experiments", target: "website" },
                 // { source: "experiments", target: "covers" },
                 // { source: "experiments", target: "environmental" },
@@ -1096,7 +1152,7 @@ function ArrowLeft() {
 
         //Splits nodes to dfferent levels    
         const firstLevelNodes = node.filter(d => ['projects', 'experiments', 'about', 'contact'].includes(d.id));
-        const secondLevelNodes = node.filter(d => ['spheres', 'meridian', 'city', 'aura', 'thought', 'website', 'environmental', 'illustration'].includes(d.id));
+        const secondLevelNodes = node.filter(d => ['spheres', 'meridian', 'city', 'aura', 'thought', 'memories', 'website', 'environmental', 'illustration'].includes(d.id));
 
         // Position nodes relative to the center (they are now inside g). Translate tells D3 where to place the group
         firstLevelNodes.attr('transform', d => `translate(${d.x}, ${d.y})`);
@@ -1282,7 +1338,6 @@ if (block.type === 'video') {
                   <div class="carousel-slide ${i === 0 ? 'active' : ''}">
                     <figure>
                       <img src="${img.src}" alt="">
-                      ${img.caption ? `<figcaption class="caption">${img.caption}</figcaption>` : ''}
                     </figure>
                   </div>
                 `).join('')}
@@ -1623,6 +1678,8 @@ function checkScrollHintVisibility() {
                 }, 800); // Match the fade-in transition
             }, 600); // Match the fade-out duration
 
+            checkURLForProject();
+
     function resetView() {
     svg.transition()
         .duration(750)
@@ -1630,6 +1687,20 @@ function checkScrollHintVisibility() {
             zoom.transform,
             d3.zoomIdentity.translate(window.innerWidth / 2, window.innerHeight / 2)
         );
+}
+
+//Deep linking
+function checkURLForProject() {
+    const params = new URLSearchParams(window.location.search);
+    const projectId = params.get("project");
+
+    if (projectId) {
+        const nodeData = portfolioData.nodes.find(n => n.id === projectId);
+        if (nodeData && nodeData.type === "project") {
+            currentProjectIndex = projectNodes.findIndex(p => p.id === projectId);
+            showProjectDetail(nodeData.details);
+        }
+    }
 }
 
         // Handle window resize
