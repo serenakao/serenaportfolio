@@ -1665,6 +1665,8 @@ function checkScrollHintVisibility() {
             .style('opacity', 1);
         }
 
+        checkURLForProject();
+        
         //Load animation
         setTimeout(() => {
             const loadingText = document.querySelector('.loading-text');
@@ -1677,8 +1679,6 @@ function checkScrollHintVisibility() {
 
                 }, 800); // Match the fade-in transition
             }, 600); // Match the fade-out duration
-
-            checkURLForProject();
 
     function resetView() {
     svg.transition()
