@@ -884,6 +884,42 @@
     ]
   }
 },
+
+{id: "pivotinstallation",
+  name: "Meridian Pivot Party Installation",
+  type: "project",
+  parent: "projects",
+  x: -80,
+  y: -330,
+  details: {
+    title: "Meridian Pivot Party Installation",
+    role: "Fabricator, designer",
+    type: "Winow installation",
+
+    blocks: [
+        {
+            type: "paragraph",
+            text: "To celebrate the launch of a magazine, Meridian by Mercury, I art directed and designed, I created a site-specific window installation that engaged with the issue’s central theme: pivot. Positioned to capture the attention of passersby, the display was designed to spark curiosity by changing as people walked by the venue. A QR code invited viewers to sign up for our mailing list for future releases."
+        },
+        {
+            type: "paragraph",
+            text: "The installation featured the magazine cover and a bold typographic quote from one of the issue’s interviewees, encapsulating the issue’s theme and drawing viewers into its narrative.",
+        },
+        {
+            type: "image",
+            src:"./projects/pivotinstallation/pivotinstallation_videoposter.png",
+            hidden:true
+        },
+        {
+            type: "video",
+            src:"./projects/pivotinstallation/pivotinstallation.webm",
+            poster: "./projects/pivotinstallation/pivotinstallation_videoposter.png",
+            preload: "metadata",
+            orientation: "vertical",
+        },
+    ]
+  }
+},
                         
                 // Personal projects and experiemnts
                 {
@@ -958,6 +994,11 @@
                         role: "Creator, designer, producer",
                         type: "Book design, print design, production design",
                         blocks: [
+                            {
+                            type: "image",
+                            src: "./projects/thought/memories_videoposter.webp",
+                            hidden:true
+                            },
                             {
                                 type: "paragraph",
                                 text: "<i>Memories</i> by Juliana Vislova, is a short comic that traces the moment of quiet transformation in a child. The story unfolds through a conversation how everything we see in the night sky is a glimpse into the past.",
@@ -1076,6 +1117,7 @@
                 { source: "projects", target: "meridian" },
                 { source: "projects", target: "city" },
                 { source: "projects", target: "aura" },
+                { source: "projects", target: "pivotinstallation" },
                 { source: "experiments", target: "thought" },
                 { source: "experiments", target: "memories" },
                 { source: "experiments", target: "website" },
@@ -1152,7 +1194,7 @@ function ArrowLeft() {
 
         //Splits nodes to dfferent levels    
         const firstLevelNodes = node.filter(d => ['projects', 'experiments', 'about', 'contact'].includes(d.id));
-        const secondLevelNodes = node.filter(d => ['spheres', 'meridian', 'city', 'aura', 'thought', 'memories', 'website', 'environmental', 'illustration'].includes(d.id));
+        const secondLevelNodes = node.filter(d => ['spheres', 'meridian', 'city', 'aura', 'pivotinstallation', 'thought', 'memories', 'website', 'environmental', 'illustration'].includes(d.id));
 
         // Position nodes relative to the center (they are now inside g). Translate tells D3 where to place the group
         firstLevelNodes.attr('transform', d => `translate(${d.x}, ${d.y})`);
